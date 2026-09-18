@@ -1,0 +1,517 @@
+/* =========================================================
+   Task Manager - stylesheet
+   Mobile-first: base styles target small screens, then
+   min-width media queries add layout for larger screens.
+   ========================================================= */
+
+:root {
+    --ink: #20262b;
+    --muted: #6b7280;
+    --bg: #f5f4f0;
+    --panel: #ffffff;
+    --border: #e2e0d8;
+    --accent: #2c5f8a;
+    --accent-dark: #204a6d;
+    --danger: #b5482d;
+    --danger-dark: #973b23;
+    --pending: #b08a2e;
+    --progress: #2c5f8a;
+    --completed: #3f7a56;
+    --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.muted { color: var(--muted); }
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 700;
+    font-size: 22px;
+
+    color: #172b4d;
+}
+.brand-logo {
+    width: 36px;
+    height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2878ed;
+    color: white;
+
+    border-radius: 8px;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+.brand:hover { text-decoration: none; }
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.welcome-text {
+    font-size: 13.5px;
+    color: var(--muted);
+}
+
+.site-main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-sm { padding: 7px 12px; font-size: 13px; }
+
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: #10151a; text-decoration: none; }
+
+.btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+.btn-outline:hover { background: #f0eee7; text-decoration: none; }
+
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { background: var(--danger-dark); }
+
+.btn-block { width: 100%; }
+
+/* ---------- Alerts ---------- */
+
+.alert {
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+.alert ul { margin: 0; padding-left: 18px; }
+
+.alert-error { background: #FBEAE4; color: var(--danger-dark); border: 1px solid #EAC3B4; }
+.alert-success { background: #E8F3EC; color: #285C3F; border: 1px solid #BEDDC9; }
+
+/* ---------- Modern Auth Page ---------- */
+
+.auth-wrap {
+    min-height: calc(100vh - 130px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #f5f9ff, #eef5ff);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border: 1px solid #dce7f5;
+    border-radius: 18px;
+    padding: 42px 38px;
+    box-shadow: 0 12px 35px rgba(30, 80, 140, 0.10);
+    text-align: left;
+}
+
+.login-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2878ed;
+    color: #ffffff;
+
+    border-radius: 12px;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    box-shadow: 0 6px 18px rgba(40, 120, 237, 0.25);
+}
+
+.auth-card h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+    color: #172b4d;
+}
+
+.auth-sub {
+    color: #7183a3;
+    margin: 8px 0 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Login input area */
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    padding-left: 48px;
+    padding-right: 45px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: #7890b3;
+    font-size: 18px;
+
+    z-index: 2;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+    color: #7890b3;
+}
+
+.password-toggle:hover {
+    color: #2878ed;
+}
+
+
+/* Login inputs */
+
+.auth-card input[type="text"],
+.auth-card input[type="email"],
+.auth-card input[type="password"] {
+    height: 56px;
+
+    border: 1px solid #cbd8ea;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+}
+
+.auth-card input:focus {
+    outline: none;
+
+    border-color: #2878ed;
+
+    box-shadow: 0 0 0 3px rgba(40, 120, 237, 0.10);
+}
+
+.auth-card input::placeholder {
+    color: #9aaac1;
+}
+
+
+/* Labels */
+
+.auth-card form label {
+    color: #263b5b;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 18px 0 8px;
+}
+
+.auth-card form label:first-of-type {
+    margin-top: 0;
+}
+
+
+/* Login button */
+
+.auth-card .btn-primary {
+    margin-top: 24px;
+
+    height: 56px;
+
+    background: #2878ed;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    box-shadow: 0 6px 16px rgba(40, 120, 237, 0.20);
+}
+
+.auth-card .btn-primary:hover {
+    background: #1767dc;
+}
+
+
+/* Create account */
+
+.auth-switch {
+    margin-top: 28px;
+
+    font-size: 14px;
+
+    color: #7183a3;
+
+    text-align: center;
+}
+
+.auth-switch a {
+    color: #2878ed;
+    font-weight: 600;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Forms ---------- */
+
+form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 14px 0 6px;
+}
+form label:first-of-type { margin-top: 0; }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14.5px;
+    background: #fff;
+    color: var(--ink);
+}
+
+textarea { resize: vertical; }
+
+.form-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+}
+
+.form-wrap h1 { margin-top: 0; font-size: 20px; }
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+/* ---------- Dashboard ---------- */
+
+.dashboard-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.dashboard-head h1 { margin: 0 0 4px; font-size: 22px; }
+
+.task-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* mobile: single column, no horizontal scroll */
+    gap: 14px;
+}
+
+.task-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    min-width: 0; /* prevent overflow inside grid cells */
+}
+
+.task-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.task-card-top h3 {
+    margin: 0;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.task-desc {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 8px 0 0;
+    word-break: break-word;
+}
+
+.task-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--muted);
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #fff;
+}
+.status-pending { background: var(--pending); }
+.status-progress { background: var(--progress); }
+.status-completed { background: var(--completed); }
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    background: var(--panel);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 40px 20px;
+}
+.empty-state p { color: var(--muted); margin-bottom: 14px; }
+
+/* ---------- Toasts ---------- */
+
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+    align-items: center;
+}
+
+.toast {
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    max-width: 320px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+.toast-error { background: var(--danger); }
+.toast-success { background: var(--completed); }
+
+/* =========================================================
+   Responsive breakpoints
+   ========================================================= */
+
+/* Tablets and up */
+@media (min-width: 600px) {
+    .task-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #toast-container { left: auto; }
+}
+
+/* Small laptops and up */
+@media (min-width: 900px) {
+    .task-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Small phones: tighten spacing further */
+@media (max-width: 400px) {
+    .site-main { padding: 14px 10px 50px; }
+    .form-wrap, .auth-card { padding: 18px; }
+    .task-card { padding: 13px; }
+}
